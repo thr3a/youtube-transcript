@@ -1,7 +1,7 @@
 const RE_YOUTUBE =
   /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i;
 const USER_AGENT =
-  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36,gzip(gfe)';
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36';
 const RE_XML_TRANSCRIPT =
   /<text start="([^"]*)" dur="([^"]*)">([^<]*)<\/text>/g;
 
@@ -77,6 +77,8 @@ export class YoutubeTranscript {
         headers: {
           ...(config?.lang && { 'Accept-Language': config.lang }),
           'User-Agent': USER_AGENT,
+          'Origin': 'https://www.youtube.com',
+          'referer': 'https://www.youtube.com/watch?v=0ExzCPCLzYM'
         },
       }
     );
